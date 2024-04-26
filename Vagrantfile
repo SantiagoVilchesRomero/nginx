@@ -73,7 +73,18 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get upgrade
+    apt-get install -y nginx
+    apt-get install -y vsftpd
+    mkdir -p /var/www/santi.com/html
+    chown -R www-data:www-data /var/www/santi.com/html
+    chmod -R 755 /var/www/santi.com
     cp -r -v /vagrant/static-website-example /var/www/santi.com/html
+    cp -v /vagrant/santi /etc/nginx/sites-available/santi
+    ln -s /etc/nginx/sites-available/santi /etc/nginx/sites-enabled/
+    cp -v /vagrant/hosts /etc/hosts
+    mkdir -p /home/svilrom1212/ftp
+    cp -v /vagrant/vsftpd.conf /etc/vsftpd.conf
     systemctl restart nginx
+    systemctl restart vsftp
   SHELL
 end
