@@ -84,6 +84,8 @@ Vagrant.configure("2") do |config|
     cp -v /vagrant/hosts /etc/hosts
     mkdir -p /home/svilrom1212/ftp
     cp -v /vagrant/vsftpd.conf /etc/vsftpd.conf
+    cp -v /vagrant/vsftpd.crt /etc/ssl/certs/vsftpd.crt
+    cp -v /vagrant/vsftpd.key /etc/ssl/private/vsftpd.key
     systemctl restart nginx
     systemctl restart vsftp
   SHELL
