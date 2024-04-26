@@ -78,7 +78,7 @@ Vagrant.configure("2") do |config|
     mkdir -p /var/www/santi.com/html
     chown -R www-data:www-data /var/www/santi.com/html
     chmod -R 755 /var/www/santi.com
-    cp -r -v /vagrant/static-website-example /var/www/santi.com/html
+    cp -r -v /vagrant/paginaNginx /var/www/santi.com/html
     cp -v /vagrant/santi /etc/nginx/sites-available/santi
     ln -s /etc/nginx/sites-available/santi /etc/nginx/sites-enabled/
     cp -v /vagrant/hosts /etc/hosts
