@@ -75,6 +75,7 @@ Vagrant.configure("2") do |config|
     apt-get upgrade
     apt-get install -y nginx
     apt-get install -y vsftpd
+    apt-get install -y openssl
     mkdir -p /var/www/santi.com/html
     chown -R www-data:www-data /var/www/santi.com/html
     chmod -R 755 /var/www/santi.com
@@ -88,5 +89,6 @@ Vagrant.configure("2") do |config|
     cp -v /vagrant/vsftpd.key /etc/ssl/private/vsftpd.key
     systemctl restart nginx
     systemctl restart vsftp
+    systemctl restart openssl
   SHELL
 end
