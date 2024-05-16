@@ -81,6 +81,8 @@ Vagrant.configure("2") do |config|
     chmod -R 755 /var/www/santi.com
     cp -r -v /vagrant/paginaNginx /var/www/santi.com/html
     cp -v /vagrant/santi /etc/nginx/sites-available/santi
+    # Usuario - > santi | vilches passwd -> 121223
+    sudo cp /vagrant/.htpasswd /etc/nginx/
     ln -s /etc/nginx/sites-available/santi /etc/nginx/sites-enabled/
     cp -v /vagrant/hosts /etc/hosts
     mkdir -p /home/svilrom1212/ftp
